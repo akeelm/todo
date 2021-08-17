@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoItem tests should be able to render 1`] = `
+<div>
+  <div
+    class="todo-item"
+    data-testid="todo-item"
+  />
+</div>
+`;
