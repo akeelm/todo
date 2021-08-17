@@ -19,5 +19,17 @@ describe('TodoItem tests', () => {
        );
 
        expect(container).toMatchSnapshot();
-   }) 
+   });
+
+   it ('should have an editable input', () => {
+       throw('not yet implemented');
+   });
+
+   it ('should be able to mark as completed', () => {
+       throw('not yet implemented');
+   });
+
+   it('should be able to delete the todo', () => {
+       throw('not yet implemented');
+   });
 });
