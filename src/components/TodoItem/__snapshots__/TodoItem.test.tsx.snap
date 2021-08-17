@@ -5,6 +5,26 @@ exports[`TodoItem tests should be able to render 1`] = `
   <div
     class="todo-item"
     data-testid="todo-item"
-  />
+  >
+    <input
+      data-testid="todo-item-checkbox"
+      tabindex="1"
+      title="Complete"
+      type="checkbox"
+    />
+    <span
+      class="todo-item__text "
+      data-testid="todo-item-text"
+      tabindex="1"
+    >
+      Need to write some tests
+    </span>
+    <button
+      data-testid="delete-todo-button"
+      title="Delete todo"
+    >
+      Delete
+    </button>
+  </div>
 </div>
 `;
