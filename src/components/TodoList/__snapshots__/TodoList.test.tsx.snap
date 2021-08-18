@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoList tests should be able to render 1`] = `
+<div>
+  <h2>
+    Completed list
+  </h2>
+  <ul
+    class="todo-list"
+    data-testid="todo-list"
+  >
+    <li
+      class="todo-item"
+      data-testid="todo-item"
+    >
+      <input
+        data-testid="todo-item-checkbox"
+        tabindex="1"
+        title="Complete"
+        type="checkbox"
+      />
+      <span
+        class="todo-item__text "
+        data-testid="todo-item-text"
+        tabindex="1"
+      >
+        Todo 1
+      </span>
+      <button
+        data-testid="delete-todo-button"
+        title="Delete todo"
+      >
+        Delete
+      </button>
+    </li>
+    <li
+      class="todo-item"
+      data-testid="todo-item"
+    >
+      <input
+        data-testid="todo-item-checkbox"
+        tabindex="1"
+        title="Complete"
+        type="checkbox"
+      />
+      <span
+        class="todo-item__text "
+        data-testid="todo-item-text"
+        tabindex="1"
+      >
+        Todo 2
+      </span>
+      <button
+        data-testid="delete-todo-button"
+        title="Delete todo"
+      >
+        Delete
+      </button>
+    </li>
+    <li
+      class="todo-item"
+      data-testid="todo-item"
+    >
+      <input
+        data-testid="todo-item-checkbox"
+        tabindex="1"
+        title="Complete"
+        type="checkbox"
+      />
+      <span
+        class="todo-item__text "
+        data-testid="todo-item-text"
+        tabindex="1"
+      >
+        Todo 3
+      </span>
+      <button
+        data-testid="delete-todo-button"
+        title="Delete todo"
+      >
+        Delete
+      </button>
+    </li>
+    <h3>
+      Add a new Todo:
+    </h3>
+    <li
+      class="todo-item"
+      data-testid="todo-item"
+    >
+      <input
+        data-testid="todo-item-checkbox"
+        tabindex="1"
+        title="Complete"
+        type="checkbox"
+      />
+      <span
+        class="todo-item__text "
+        data-testid="todo-item-text"
+        tabindex="1"
+      />
+      <button
+        data-testid="delete-todo-button"
+        title="Delete todo"
+      >
+        Delete
+      </button>
+    </li>
+  </ul>
+</div>
+`;

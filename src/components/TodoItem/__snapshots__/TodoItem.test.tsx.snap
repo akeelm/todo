@@ -2,7 +2,7 @@
 
 exports[`TodoItem tests should be able to render 1`] = `
 <div>
-  <div
+  <li
     class="todo-item"
     data-testid="todo-item"
   >
@@ -25,6 +25,6 @@ exports[`TodoItem tests should be able to render 1`] = `
     >
       Delete
     </button>
-  </div>
+  </li>
 </div>
 `;

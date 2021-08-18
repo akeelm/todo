@@ -30,7 +30,7 @@ const TodoItem: React.FC<ITodoItemProps> = ({
     }
 
     return (
-        <div className="todo-item" data-testid="todo-item">
+        <li className="todo-item" data-testid="todo-item">
             <input
                 type="checkbox"
                 data-testid="todo-item-checkbox"
@@ -64,7 +64,7 @@ const TodoItem: React.FC<ITodoItemProps> = ({
             >
                 Delete
             </button>
-        </div>
+        </li>
     );
 }
 
