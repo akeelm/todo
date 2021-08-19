@@ -1,4 +1,16 @@
+## Todo app info :
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+
+
+* Tests are using React-testing-library.
+* State is held in Redux with some local state using hooks
+* Styled with styled-components
+
+TODO:
+* Check accessibility
+* Add redux-persist for state persistence
+
 
 ## Available Scripts
 
