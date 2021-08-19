@@ -3,7 +3,7 @@
 exports[`TodoList tests should be able to render 1`] = `
 <div>
   <h2>
-    Completed list
+    Todo list
   </h2>
   <ul
     class="todo-list"
@@ -15,14 +15,14 @@ exports[`TodoList tests should be able to render 1`] = `
     >
       <input
         data-testid="todo-item-checkbox"
-        tabindex="1"
+        tabindex="0"
         title="Complete"
         type="checkbox"
       />
       <span
         class="todo-item__text "
         data-testid="todo-item-text"
-        tabindex="1"
+        tabindex="0"
       >
         Todo 1
       </span>
@@ -39,14 +39,14 @@ exports[`TodoList tests should be able to render 1`] = `
     >
       <input
         data-testid="todo-item-checkbox"
-        tabindex="1"
+        tabindex="0"
         title="Complete"
         type="checkbox"
       />
       <span
         class="todo-item__text "
         data-testid="todo-item-text"
-        tabindex="1"
+        tabindex="0"
       >
         Todo 2
       </span>
@@ -63,14 +63,14 @@ exports[`TodoList tests should be able to render 1`] = `
     >
       <input
         data-testid="todo-item-checkbox"
-        tabindex="1"
+        tabindex="0"
         title="Complete"
         type="checkbox"
       />
       <span
         class="todo-item__text "
         data-testid="todo-item-text"
-        tabindex="1"
+        tabindex="0"
       >
         Todo 3
       </span>
@@ -88,23 +88,16 @@ exports[`TodoList tests should be able to render 1`] = `
       class="todo-item"
       data-testid="todo-item"
     >
-      <input
-        data-testid="todo-item-checkbox"
-        tabindex="1"
-        title="Complete"
-        type="checkbox"
-      />
+      <span>
+        +
+      </span>
       <span
         class="todo-item__text "
         data-testid="todo-item-text"
-        tabindex="1"
-      />
-      <button
-        data-testid="delete-todo-button"
-        title="Delete todo"
+        tabindex="0"
       >
-        Delete
-      </button>
+        Add a todo
+      </span>
     </li>
   </ul>
 </div>

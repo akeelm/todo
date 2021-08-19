@@ -4,10 +4,10 @@ import TodoItem from '.';
 import { ITodoItemProps } from './TodoItem'
 
 describe('TodoItem tests', () => {
-    const mockCompleteHandler = (id: number, state: boolean) => jest.fn();
+    const mockCompleteHandler = (id: number, text: string, completed: boolean) => jest.fn();
     const mockDeleteHandler = (id: number) => jest.fn();
     const mockEditFn = jest.fn()
-    const mockEditHandler = (id: number, string: string) => mockEditFn();
+    const mockEditHandler = (id: number, string: string, completed: boolean) => mockEditFn();
     const mockTodoItem: ITodoItemProps = {
         id: 1,
         text: 'Need to write some tests',
@@ -33,7 +33,7 @@ describe('TodoItem tests', () => {
        const input: Element = getByTestId(container, 'todo-item-input');
        await waitFor(() => expect(input).toBeTruthy());
 
-       await userEvent.type(input, 'test input');
+       await userEvent.type(input, 'test input{enter}');
        expect(mockEditFn).toHaveBeenCalled();
    });
 
@@ -55,4 +55,13 @@ describe('TodoItem tests', () => {
        userEvent.click(deleteButton);
        waitFor(() => expect(mockDeleteHandler).toHaveBeenCalled());
    });
+
+   it('shouldnt have delete or complete checkbox if new todo', () => {
+       const { queryByTestId } = render(
+           <TodoItem {...mockTodoItem} id={-1} />
+       );
+
+       expect(queryByTestId ('delete-todo-button')).toBeNull();
+       expect(queryByTestId ('todo-item-checkbox')).toBeNull();
+   })
 });

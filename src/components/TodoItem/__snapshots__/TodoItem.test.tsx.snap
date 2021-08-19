@@ -8,14 +8,14 @@ exports[`TodoItem tests should be able to render 1`] = `
   >
     <input
       data-testid="todo-item-checkbox"
-      tabindex="1"
+      tabindex="0"
       title="Complete"
       type="checkbox"
     />
     <span
       class="todo-item__text "
       data-testid="todo-item-text"
-      tabindex="1"
+      tabindex="0"
     >
       Need to write some tests
     </span>

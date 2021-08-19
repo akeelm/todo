@@ -17,7 +17,7 @@ export const todoSlice = createSlice({
         add: (state, action: PayloadAction<ITodo>) => {
             action.payload.id =
                 state.todos.length ?
-                    Math.max(...state.todos.map(x => x.id))
+                    Math.max(...state.todos.map(x => x.id)) + 1
                     :
                     1;
 

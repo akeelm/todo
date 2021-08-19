@@ -1,5 +1,7 @@
 import { render } from '@testing-library/react'
+import { Provider } from 'react-redux';
 import TodoList from '.';
+import { store } from '../../app/store';
 import ITodo from '../../interfaces/ITodo';
 
 describe('TodoList tests', () => {
@@ -11,10 +13,12 @@ describe('TodoList tests', () => {
 
     it('should be able to render', () => {
        const { container } = render(
-           <TodoList
-               todoList={mockTodoList}
-               isCompletedList={false}
-           />
+           <Provider store={store}>
+               <TodoList
+                   todoList={mockTodoList}
+                   isCompletedList={false}
+               />
+           </Provider>
        );
 
        expect(container).toMatchSnapshot();

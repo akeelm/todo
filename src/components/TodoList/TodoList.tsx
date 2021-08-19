@@ -1,5 +1,7 @@
 import React from 'react';
+import { useAppDispatch } from '../../app/hooks';
 import ITodo from '../../interfaces/ITodo';
+import { add, deleteTodo, edit } from '../../redux/todoSlice';
 import TodoItem from '../TodoItem';
 
 interface ITodoListProps {
@@ -11,12 +13,27 @@ const TodoList: React.FC<ITodoListProps> = ({
     todoList,
     isCompletedList
 }) => {
-    const completeHandlerFn = (id: number, completed: boolean) => {};
-    const deleteHandlerFn = (id: number) => {};
-    const editHandlerFn = (id: number, text: string) => {};
+    const dispatch = useAppDispatch();
+
+    const completeHandlerFn = (id: number, text: string, completed: boolean) => {
+        dispatch(edit({id, text, completed}))
+    };
+
+    const deleteHandlerFn = (id: number) => {
+        dispatch(deleteTodo(id));
+    };
+
+    const editHandlerFn = (id: number, text: string) => {
+        if (id === -1) {
+            dispatch(add({id: -1, text, completed: false}));
+        } else {
+            dispatch(edit({ id, text, completed: false}))
+        }
+    };
+
     return (
         <>
-            <h2>{isCompletedList ? "Todo list" : "Completed list"}</h2>
+            <h2>{isCompletedList ?  "Completed list" : "Todo list"}</h2>
             <ul
                 className="todo-list"
                 data-testid="todo-list"

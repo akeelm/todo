@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import ITodo from '../../interfaces/ITodo';
+import './TodoItem.css';
 
 export interface ITodoItemProps extends ITodo {
-    completeHandler: (id: number, state: boolean) => void;
+    completeHandler: (id: number, text: string, completed: boolean) => void;
     deleteHandler: (id: number) => void;
-    editHandler: (id: number, text: string) => void;
+    editHandler: (id: number, text: string, completed: boolean) => void;
 }
 
 const TodoItem: React.FC<ITodoItemProps> = ({
@@ -16,54 +17,90 @@ const TodoItem: React.FC<ITodoItemProps> = ({
     editHandler
 }) => {
     const [isEditing, setIsEditing] = useState(false);
+    const [todoText, setTodoText] = useState(text);
+
+    const isAddTodo = useCallback(() => id === -1, [id]);
+
+    const inputRef = useRef<HTMLInputElement | null>(null);
+
+    useEffect(() => {
+        if (!isEditing && isAddTodo()) {
+            // reset the text
+            setTodoText('');
+        } 
+        
+        if (isEditing) {
+            // set focus when editing
+            inputRef.current?.focus();
+        }
+    }, [isEditing, isAddTodo]);
 
     const todoItemCheckboxHandler = () => {
-        completeHandler(id, !completed);
+        completeHandler(id, todoText, !completed);
     }
 
     const deleteTodoHandler = () => {
         deleteHandler(id);
     }
 
-    const editTodoHandler = (event: React.SyntheticEvent<HTMLInputElement>) => {
-        editHandler(id, (event.target as HTMLInputElement).innerText)
+    const editTodoHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === "Enter") {
+            editHandler(id, todoText, completed);
+            setIsEditing(false);
+
+            if (isAddTodo()) {
+                setTodoText('');
+            }
+        }
     }
 
     return (
         <li className="todo-item" data-testid="todo-item">
-            <input
-                type="checkbox"
-                data-testid="todo-item-checkbox"
-                title="Complete"
-                tabIndex={1}
-                onChange={todoItemCheckboxHandler}
-                checked={completed}
-            ></input>
+            {
+                isAddTodo() ?
+                    <span>+</span>
+                    :
+                    <input
+                        type="checkbox"
+                        data-testid="todo-item-checkbox"
+                        title="Complete"
+                        tabIndex={0}
+                        onChange={todoItemCheckboxHandler}
+                        checked={completed}
+                    ></input>
+            }
             {
                 isEditing ?
                     <input
+                        ref={inputRef}
                         type="text"
                         data-testid="todo-item-input"
                         title="Edit todo"
-                        onChange={editTodoHandler}
+                        onChange={e => setTodoText(e.target.value)}
+                        onKeyPress={editTodoHandler}
+                        onBlur={() => setIsEditing(false)}
+                        value={todoText}
                     ></input>
                     :
                     <span
                         data-testid="todo-item-text"
-                        tabIndex={1}
+                        tabIndex={0}
                         className={`todo-item__text ${completed ? 'todo-item__text--completed' : ''}`}
                         onFocus={() => setIsEditing(true)}
                     >
-                        {text}
+                        {isAddTodo() ? 'Add a todo' : text}
                     </span>
             }
-            <button
-                title="Delete todo"
-                data-testid="delete-todo-button"
-                onClick={deleteTodoHandler}
-            >
-                Delete
-            </button>
+            {
+                !isAddTodo() &&
+                <button
+                    title="Delete todo"
+                    data-testid="delete-todo-button"
+                    onClick={deleteTodoHandler}
+                >
+                    Delete
+                </button>
+            }
         </li>
     );
 }
