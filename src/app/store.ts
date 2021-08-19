@@ -1,9 +1,16 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import storage from 'redux-persist/lib/storage';
 import todoReducer from '../redux/todoSlice';
+import { persistReducer } from 'redux-persist'
+
+const persistConfig = {
+  key: 'root',
+  storage
+}
 
 export const store = configureStore({
   reducer: {
-    todo: todoReducer,
+    todo: persistReducer(persistConfig, todoReducer),
   },
 });
 
