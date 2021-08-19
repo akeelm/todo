@@ -2,11 +2,13 @@
 
 exports[`TodoList tests should be able to render 1`] = `
 <div>
-  <h2>
+  <h2
+    class="sc-jSFjdj hfVCzK"
+  >
     Todo list
   </h2>
   <ul
-    class="sc-bdnxRM gsvXWL todo-list"
+    class="sc-bdnxRM fvtXgD todo-list"
     data-testid="todo-list"
   >
     <li
