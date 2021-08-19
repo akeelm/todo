@@ -6,10 +6,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * Tests are using React-testing-library.
 * State is held in Redux with some local state using hooks
 * Styled with styled-components
-
-TODO:
-* Check accessibility
-* Add redux-persist for state persistence
+* Basic accessibility (tab control, informative titles for screen readers)
+* Redux-persist for state persistence
 
 
 ## Available Scripts
