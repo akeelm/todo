@@ -3,17 +3,18 @@
 exports[`TodoItem tests should be able to render 1`] = `
 <div>
   <li
-    class="todo-item"
+    class="sc-dlnjwi dlNrSI todo-item"
     data-testid="todo-item"
   >
     <input
+      class="sc-hKFxyN cXOlCo"
       data-testid="todo-item-checkbox"
       tabindex="0"
       title="Complete"
       type="checkbox"
     />
     <span
-      class="todo-item__text "
+      class="sc-gtsrHT cxLfMu"
       data-testid="todo-item-text"
       tabindex="0"
     >

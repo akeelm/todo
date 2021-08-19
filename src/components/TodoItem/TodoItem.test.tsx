@@ -37,15 +37,6 @@ describe('TodoItem tests', () => {
        expect(mockEditFn).toHaveBeenCalled();
    });
 
-   it ('should be able to mark as completed', async() => {
-       const { container } = render(
-           <TodoItem {...mockTodoItem} completed={true} />
-       );
-
-       const text: Element = getByTestId(container, 'todo-item-text');
-       expect(text).toHaveClass('todo-item__text--completed');
-   });
-
    it('should be able to delete the todo', () => {
        const { container } = render(
            <TodoItem {...mockTodoItem} />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import ITodo from '../../interfaces/ITodo';
-import './TodoItem.css';
+import { StyledCheckBox, StyledInput, StyledTodoItem, StyledTodoText } from '../StyledComponents';
 
 export interface ITodoItemProps extends ITodo {
     completeHandler: (id: number, text: string, completed: boolean) => void;
@@ -55,23 +55,23 @@ const TodoItem: React.FC<ITodoItemProps> = ({
     }
 
     return (
-        <li className="todo-item" data-testid="todo-item">
+        <StyledTodoItem isAddTodo={isAddTodo()} className="todo-item" data-testid="todo-item">
             {
                 isAddTodo() ?
                     <span>+</span>
                     :
-                    <input
+                    <StyledCheckBox
                         type="checkbox"
                         data-testid="todo-item-checkbox"
                         title="Complete"
                         tabIndex={0}
                         onChange={todoItemCheckboxHandler}
                         checked={completed}
-                    ></input>
+                    ></StyledCheckBox>
             }
             {
                 isEditing ?
-                    <input
+                    <StyledInput
                         ref={inputRef}
                         type="text"
                         data-testid="todo-item-input"
@@ -80,16 +80,16 @@ const TodoItem: React.FC<ITodoItemProps> = ({
                         onKeyPress={editTodoHandler}
                         onBlur={() => setIsEditing(false)}
                         value={todoText}
-                    ></input>
+                    ></StyledInput>
                     :
-                    <span
+                    <StyledTodoText
                         data-testid="todo-item-text"
                         tabIndex={0}
-                        className={`todo-item__text ${completed ? 'todo-item__text--completed' : ''}`}
                         onFocus={() => setIsEditing(true)}
+                        completed={completed}
                     >
                         {isAddTodo() ? 'Add a todo' : text}
-                    </span>
+                    </StyledTodoText>
             }
             {
                 !isAddTodo() &&
@@ -101,7 +101,7 @@ const TodoItem: React.FC<ITodoItemProps> = ({
                     Delete
                 </button>
             }
-        </li>
+        </StyledTodoItem>
     );
 }
 
