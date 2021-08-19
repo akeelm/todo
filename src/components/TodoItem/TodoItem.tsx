@@ -58,12 +58,12 @@ const TodoItem: React.FC<ITodoItemProps> = ({
         <StyledTodoItem isAddTodo={isAddTodo()} className="todo-item" data-testid="todo-item">
             {
                 isAddTodo() ?
-                    <span>+</span>
+                    <span onClick={() => setIsEditing(true)}>+</span>
                     :
                     <StyledCheckBox
                         type="checkbox"
                         data-testid="todo-item-checkbox"
-                        title="Complete"
+                        title={completed ? 'Undo complete for todo' : 'Mark todo as completed'}
                         tabIndex={0}
                         onChange={todoItemCheckboxHandler}
                         checked={completed}
@@ -75,7 +75,7 @@ const TodoItem: React.FC<ITodoItemProps> = ({
                         ref={inputRef}
                         type="text"
                         data-testid="todo-item-input"
-                        title="Edit todo"
+                        title={isAddTodo() ? 'Add a todo' : 'Edit the todo'}
                         onChange={e => setTodoText(e.target.value)}
                         onKeyPress={editTodoHandler}
                         onBlur={() => setIsEditing(false)}

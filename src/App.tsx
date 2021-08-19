@@ -1,4 +1,3 @@
-import React from 'react';
 import TodoList from './components/TodoList';
 import './App.css';
 import { useAppSelector } from './app/hooks';
@@ -9,16 +8,14 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <TodoList
-          isCompletedList={false}
-          todoList={todos.filter(x => !x.completed)}
-        />
-        <TodoList
-          isCompletedList
-          todoList={todos.filter(x => x.completed)}
-        />
-      </header>
+      <TodoList
+        isCompletedList={false}
+        todoList={todos.filter(x => !x.completed)}
+      />
+      <TodoList
+        isCompletedList
+        todoList={todos.filter(x => x.completed)}
+      />
     </div>
   );
 }

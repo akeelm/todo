@@ -17,7 +17,7 @@ exports[`TodoList tests should be able to render 1`] = `
         class="sc-hKFxyN cXOlCo"
         data-testid="todo-item-checkbox"
         tabindex="0"
-        title="Complete"
+        title="Mark todo as completed"
         type="checkbox"
       />
       <span
@@ -42,7 +42,7 @@ exports[`TodoList tests should be able to render 1`] = `
         class="sc-hKFxyN cXOlCo"
         data-testid="todo-item-checkbox"
         tabindex="0"
-        title="Complete"
+        title="Mark todo as completed"
         type="checkbox"
       />
       <span
@@ -67,7 +67,7 @@ exports[`TodoList tests should be able to render 1`] = `
         class="sc-hKFxyN cXOlCo"
         data-testid="todo-item-checkbox"
         tabindex="0"
-        title="Complete"
+        title="Mark todo as completed"
         type="checkbox"
       />
       <span
