@@ -2,7 +2,7 @@ import React from 'react';
 import { useAppDispatch } from '../../app/hooks';
 import ITodo from '../../interfaces/ITodo';
 import { add, deleteTodo, edit } from '../../redux/todoSlice';
-import { StyledUl } from '../StyledComponents';
+import { StyledH2, StyledUl } from '../StyledComponents';
 import TodoItem from '../TodoItem';
 
 interface ITodoListProps {
@@ -35,7 +35,7 @@ const TodoList: React.FC<ITodoListProps> = ({
 
     return (
         <>
-            <h2>{isCompletedList ?  "Completed list" : "Todo list"}</h2>
+            <StyledH2>{isCompletedList ?  "Completed list" : "Todo list"}</StyledH2>
             <StyledUl
                 className="todo-list"
                 data-testid="todo-list"

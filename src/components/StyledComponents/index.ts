@@ -3,7 +3,8 @@ import {
     StyledTodoText,
     StyledTodoItem,
     StyledCheckBox,
-    StyledInput
+    StyledInput,
+    StyledH2
 } from "./StyledComponents";
 
 export {
@@ -11,5 +12,6 @@ export {
     StyledTodoText,
     StyledTodoItem,
     StyledCheckBox,
-    StyledInput
+    StyledInput,
+    StyledH2
 };

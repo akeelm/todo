@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyledUl = styled.ul`
     list-style: none;
     padding: 0;
-    margin: 2rem;
+    margin: 0 2rem;
 `;
 
 interface IStyledTodoTextProps {
@@ -36,4 +36,8 @@ export const StyledCheckBox = styled.input`
 
 export const StyledInput = styled.input`
     margin: 0 1rem;
+`;
+
+export const StyledH2 = styled.h2`
+    font-variant-caps: all-petite-caps;
 `;
